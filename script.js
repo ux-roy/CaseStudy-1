@@ -235,8 +235,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Interaction Prototype Button
     const protoBtn = document.getElementById('proto-btn');
+    const navLab = document.getElementById('nav-lab');
     protoBtn.addEventListener('click', () => {
         docsModal.classList.remove('show');
+        
+        // Update nav active state
+        navItems.forEach(nav => nav.classList.remove('active'));
+        navLab.classList.add('active');
     });
 
     // Open by default
