@@ -78,8 +78,7 @@ body {
 }
 
 .nav-item i {
-    width: 24px;
-    height: 24px;
+    font-size: 1.6rem;
 }
 
 /* Main Content Area */
@@ -98,7 +97,6 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 24px;
-    border-bottom: 1px solid var(--border-color);
 }
 
 .logo-area {
@@ -109,10 +107,11 @@ body {
 
 .dna-logo {
     color: var(--primary);
+    font-size: 1.8rem;
 }
 
 .logo-area h1 {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--primary);
 }
@@ -133,12 +132,16 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background var(--transition-speed);
+    transition: all var(--transition-speed);
+}
+
+.icon-btn i {
+    font-size: 1.4rem;
 }
 
 .icon-btn:hover {
     background: #f1f5f9;
-    color: var(--text-main);
+    color: var(--primary);
 }
 
 /* Page Title Row */
@@ -150,14 +153,14 @@ body {
 }
 
 .title-text h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
     margin-bottom: 4px;
 }
 
 .title-text p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
 .action-buttons {
@@ -522,10 +525,8 @@ td input:focus {
 }
 
 .modal-success-icon {
-    width: 100px;
-    height: 100px;
+    font-size: 6rem;
     color: #22c55e;
-    stroke-width: 1.5;
     position: relative;
     z-index: 2;
 }
