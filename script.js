@@ -30,12 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rowCount = 100;
     const colCount = 15;
     
-    // Choose 5 random rows for errors (to test scrolling)
-    const errorRowIndices = [];
-    while(errorRowIndices.length < 5) {
-        const r = Math.floor(Math.random() * rowCount) + 1;
-        if(!errorRowIndices.includes(r)) errorRowIndices.push(r);
-    }
+    // Choose specific rows for errors as per documentation
+    const errorRowIndices = [25, 40, 72, 85, 98];
 
     for (let i = 1; i <= rowCount; i++) {
         const tr = document.createElement('tr');
@@ -114,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.className = `error-item ${err.resolved ? 'resolved' : ''}`;
             
             const actionContent = err.resolved 
-                ? '<i data-lucide="check-circle-2" class="check-icon"></i>' 
+                ? '<i class="ph-fill ph-check-circle check-icon"></i>' 
                 : `<a class="fix-btn" data-id="${err.id}">Fix Now</a>`;
 
             item.innerHTML = `
