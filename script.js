@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Populate Table with initial data
     const rowCount = 100;
-    const colCount = 10;
+    const colCount = 15;
     
     // Choose 5 random rows for errors (to test scrolling)
     const errorRowIndices = [];

@@ -399,21 +399,28 @@ th, td {
     color: #475569;
     border-bottom: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
-    min-width: 14.285%; /* 100% / 7 = 14.285% to show 7 columns (SN + 6 others) */
+    min-width: 150px; /* Fixed width for spreadsheet feel */
+    width: 150px;
 }
 
 /* Sticky Column Styles */
 .sticky-col {
     position: sticky;
     left: 0;
-    background-color: #f8fafc; /* Same as row even color */
+    background-color: #f8fafc;
     z-index: 10;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    width: 120px;
+    min-width: 120px;
+    /* Excel-style shadow to indicate sticking */
+    /* box-shadow: 4px 0 8px -4px rgba(0,0,0,0.15);
+    border-right: 1px solid var(--border-color); */
+    text-align: center; /* Center SN for better look */
 }
 
 thead th.sticky-col {
-    z-index: 20; /* Highest z-index for top-left cell */
+    z-index: 30; /* Higher than both header and normal sticky col */
     background-color: #f1f5f9;
+    /* box-shadow: 4px 4px 8px -4px rgba(0,0,0,0.15); */
 }
 
 tr:nth-child(even) td.sticky-col {
