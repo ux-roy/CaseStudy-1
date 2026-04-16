@@ -194,4 +194,55 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 800);
         }
     });
+
+    // Documents Modal Interaction
+    const navDocs = document.getElementById('nav-docs');
+    const docsModal = document.getElementById('docs-modal');
+    const closeDocsModal = document.getElementById('close-docs-modal');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    navDocs.addEventListener('click', (e) => {
+        e.preventDefault();
+        docsModal.classList.add('show');
+    });
+
+    closeDocsModal.addEventListener('click', () => {
+        docsModal.classList.remove('show');
+    });
+
+    // Close on outside click
+    docsModal.addEventListener('click', (e) => {
+        if (e.target === docsModal) {
+            docsModal.classList.remove('show');
+        }
+    });
+
+    // Tab Switching Logic
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-tab');
+
+            // Update Buttons
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update Panes
+            tabPanes.forEach(pane => {
+                pane.classList.remove('active');
+                if (pane.id === target) {
+                    pane.classList.add('active');
+                }
+            });
+        });
+    });
+
+    // Interaction Prototype Button
+    const protoBtn = document.getElementById('proto-btn');
+    protoBtn.addEventListener('click', () => {
+        docsModal.classList.remove('show');
+    });
+
+    // Open by default
+    docsModal.classList.add('show');
 });
