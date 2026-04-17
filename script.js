@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.className = `error-item ${err.resolved ? 'resolved' : ''}`;
             
             const actionContent = err.resolved 
-                ? '<i class="ph-fill ph-check-circle check-icon"></i>' 
+                ? '<i class="ph ph-check-circle check-icon"></i>' 
                 : `<a class="fix-btn" data-id="${err.id}">Fix Now</a>`;
 
             item.innerHTML = `
