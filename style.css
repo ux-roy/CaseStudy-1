@@ -870,6 +870,8 @@ td input:focus {
     display: flex;
     justify-content: center;
     flex-shrink: 0;
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
 }
 
 .full-width {
