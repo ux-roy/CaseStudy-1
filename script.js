@@ -198,6 +198,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Cancel Button Reset
+    const cancelBtn = document.getElementById('cancel-btn');
+    cancelBtn.addEventListener('click', () => {
+        window.location.reload();
+    });
+
     // Documents Modal Interaction
     const navDocs = document.getElementById('nav-docs');
     const docsModal = document.getElementById('docs-modal');
