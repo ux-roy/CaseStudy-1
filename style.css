@@ -459,7 +459,7 @@ tr:nth-child(odd) td.sticky-col {
 }
 
 tr:hover td.sticky-col {
-    background-color: #f1f5f9;
+    background-color: #eef2ff;
 }
 
 tr:nth-child(even) {
@@ -467,7 +467,7 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-    background-color: #f1f5f9;
+    background-color: #eef2ff;
 }
 
 td input {
