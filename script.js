@@ -52,11 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (errorRowIndices.includes(i) && activeErrors.length < 5) {
                 // Determine error type
                 const errorTypes = [
-                    { msg: "Invalid entry", val: "N/A", suggestion: "Only 4 digits numerical numbers" },
-                    { msg: "Incorrect format", val: "12-X", suggestion: "Remove non-numeric characters" },
-                    { msg: "Value error", val: "0.5", suggestion: "Must be a whole number \u2265 1000" }
+                    { msg: "Missing Input", val: "", suggestion: "Please enter a 4-digit number" },
+                    { msg: "Non-Numeric Values", val: "12-X", suggestion: "Remove letters or special characters" },
+                    { msg: "Incorrect Length", val: "123", suggestion: "Enter exactly 4 digits" },
+                    { msg: "Invalid Range", val: "850", suggestion: "Number must be 1000 or greater" },
+                    { msg: "Decimal or Non-Integer", val: "1245.5", suggestion: "Use a number without decimals" }
                 ];
-                const error = errorTypes[activeErrors.length % 3];
+                const error = errorTypes[activeErrors.length];
                 input.value = error.val;
                 input.classList.add('cell-error');
                 
@@ -83,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 hideTooltip();
                 const err = activeErrors.find(e => e.element === input);
                 if (err && !err.resolved) {
-                    if (/^\d{4}$/.test(input.value)) {
+                    const val = input.value;
+                    if (/^\d{4}$/.test(val) && parseInt(val) >= 1000) {
                         err.resolved = true;
                         input.classList.remove('cell-error');
                         updateErrorLog();
