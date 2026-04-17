@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Choose specific rows for errors as per documentation
     const errorRowIndices = [25, 40, 72, 85, 98];
+    // Assign a random column to each error row
+    const errorLocations = errorRowIndices.map(row => ({
+        row: row,
+        col: Math.floor(Math.random() * (colCount - 1)) + 2
+    }));
 
     for (let i = 1; i <= rowCount; i++) {
         const tr = document.createElement('tr');
@@ -49,7 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const randomVal = Math.floor(Math.random() * 9000) + 1000;
             input.value = randomVal;
 
-            if (errorRowIndices.includes(i) && activeErrors.length < 5) {
+            const errorMatch = errorLocations.find(loc => loc.row === i && loc.col === j);
+            if (errorMatch && activeErrors.length < 5) {
                 // Determine error type
                 const errorTypes = [
                     { msg: "Missing Input", val: "", suggestion: "Please enter a 4-digit number" },
@@ -72,8 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     resolved: false
                 };
                 activeErrors.push(errorObj);
-                const rowIdx = errorRowIndices.indexOf(i);
-                errorRowIndices.splice(rowIdx, 1);
 
                 input.addEventListener('mouseenter', (e) => {
                     if (!errorObj.resolved) showTooltip(e, errorObj.suggestion);
